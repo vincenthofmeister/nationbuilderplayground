@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'peoples/update';
   post 'peoples/create_person';
   get 'peoples/delete_person';
+  get 'peoples/update_person';
 
 
   #pages routes
