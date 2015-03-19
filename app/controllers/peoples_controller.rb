@@ -21,7 +21,7 @@ class PeoplesController < ApplicationController
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
 
     @b = conn.post do |req|
-      req.url '/api/v1/people?access_token' + API_TOKEN;
+      req.url '/api/v1/people?access_token=' + API_TOKEN;
       req.headers['Content-Type'] = 'application/json'
       req.body = '{
                   "person": {
