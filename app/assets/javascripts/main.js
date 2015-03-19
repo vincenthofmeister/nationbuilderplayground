@@ -40,12 +40,13 @@ function update_person(){
     var party = document.getElementById("party").value;
     var state = document.getElementById("state").value;
     var country_code = document.getElementById("country_code").value;
+    var person_id = document.getElementById("person_id").value;
 
 
     var submittable = true;
 
 
-    if(!email || !first_name || !last_name || !gender || !employer || !party || !state || !country_code)
+    if(!email || !first_name || !last_name || !gender || !employer || !party || !state || !country_code || !person_id)
     {
         submittable = false;
     }
@@ -54,17 +55,10 @@ function update_person(){
     if(submittable)
     {
         //create request to backend to create new user
-        $.post( "/peoples/create_person", { email: email, first_name: first_name, last_name: last_name, gender: gender, employer: employer, party: party, state: state, country_code: country_code}).done(function(data){
+        $.post( "/peoples/send_update_person", { person_id: person_id, email: email, first_name: first_name, last_name: last_name, gender: gender, employer: employer, party: party, state: state, country_code: country_code}).done(function(data){
 
 
-            if(data == 201)
-            {
-                alert("Person was created!")
-            }
-            else
-            {
-                alert("There was a problem and the person was not created. You may be trying to enter a duplicate record.");
-            }
+           alert(data);
 
 
         });
