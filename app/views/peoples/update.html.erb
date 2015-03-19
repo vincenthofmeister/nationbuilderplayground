@@ -1,0 +1,28 @@
+<table class="table">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+
+
+
+
+
+
+<% @re['results'].each do |person| %>
+      <tr>
+        <td><%= person['first_name'] %></td>
+        <td><%= person['last_name'] %></td>
+        <td><%= person['email'] %></td>
+        <td><span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit Person"></span></td>
+        <td>  <span class="glyphicon glyphicon-remove" aria-hidden="true" title="Delete Person" onclick="return delete_person(<%= person['id']; %>);"></span>
+        </td>
+      </tr>
+
+
+<% end %>
+
+
+</table>
