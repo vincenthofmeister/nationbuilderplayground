@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'peoples/add';
 
+  get 'pages/nbcallback';
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
