@@ -18,6 +18,12 @@ class PeoplesController < ApplicationController
     @b = conn.get '/api/v1/sites/vincentinitiativv/pages/basic_pages', { :limit => 10, :access_token => '1ec862aed9724b88c38da24383d501d40b5279b8753089d0f4971a19a476edf6' }
 =end
 
+  end
+
+
+
+  def create_person
+    #this is used to create a person after they have passed validation
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
 
     @b = conn.post do |req|
@@ -25,12 +31,12 @@ class PeoplesController < ApplicationController
       req.headers['Content-Type'] = 'application/json'
       req.body = '{
                   "person": {
-                    "email": "vinny@example.com",
-                    "last_name": "Joe",
-                    "first_name": "Schmoe",
+                    "email": "vinny123123@example.com",
+                    "last_name": "Joebillasd",
+                    "first_name": "Anderson",
                     "sex": "M",
                     "employer": "Dexter Labs",
-                    "party": "P",
+                    "party": "S",
                     "registered_address": {
                       "state": "TX",
                       "country_code": "US"
@@ -40,11 +46,8 @@ class PeoplesController < ApplicationController
     end
 
 
-
-
-
-
   end
+
 
 
 
