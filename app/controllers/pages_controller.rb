@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
 
   def nbcallback
-    
+
   end
 
 
