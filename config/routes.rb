@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'peoples/add';
   get 'peoples/update';
   post 'peoples/create_person';
+  post 'peoples/send_update_person';
   get 'peoples/delete_person';
   get 'peoples/update_person';
 
