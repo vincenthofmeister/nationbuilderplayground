@@ -30,6 +30,25 @@ class PeoplesController < ApplicationController
   end
 
 
+
+  def update_person
+    #updates specific person, gets the person first
+
+
+
+    #this is used to create a person after they have passed validation
+    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
+
+    resp = conn.get do |req|
+      req.url '/api/v1/people/'+params[:person_id]+'/?access_token=' + API_TOKEN;
+      req.headers['Content-Type'] = 'application/json'
+    end
+
+    @re = JSON.parse(resp.body)
+
+
+  end
+
   def delete_person
     #this is used to create a person after they have passed validation
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
