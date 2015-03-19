@@ -1,9 +1,7 @@
-<%= @re['person']; %>
-
 <div class="starter-template">
   <h1>Add Person</h1>
 
-  <form class="input-form" onsubmit="return create_person();">
+  <form class="input-form" onsubmit="return update_person();">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<%= @re['person']['email']; %>">
@@ -130,6 +128,7 @@
       </select>
     </div>
     <input type="hidden" name="country_code" value="US" id="country_code">
+    <input type="hidden" name="person_id" value="<%= @re['person']['id']; %>" id="person_id">
     <button type="submit" class="btn btn-default">Create Person</button>
   </form>
 
