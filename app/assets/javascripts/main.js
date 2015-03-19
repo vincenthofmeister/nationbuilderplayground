@@ -60,7 +60,7 @@ function update_person(){
             if(data == 200)
             {
                 alert(first_name + " " + last_name + " with ID of " + person_id  + " and email: " + email + " was updated!");
-                location.reload(); 
+                location.reload();
             }
             else
             {
