@@ -63,6 +63,39 @@ class PeoplesController < ApplicationController
 
 
 
+  def send_update_person
+    #this is used to actually send update to nationbuilder
+    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
+
+    @re = conn.put do |req|
+      req.url '/api/v1/people/'+params[:person_id]+'?access_token=' + API_TOKEN;
+      req.headers['Content-Type'] = 'application/json'
+      req.body = '{
+                  "person": {
+                    "email": "'+params[:email]+'",
+                    "last_name": "'+params[:last_name]+'",
+                    "first_name": "'+params[:first_name]+'",
+                    "sex": "'+params[:gender]+'",
+                    "employer": "'+params[:employer]+'",
+                    "party": "'+params[:party]+'",
+                    "registered_address": {
+                      "state": "'+params[:state]+'",
+                      "country_code": "'+params[:country_code]+'"
+                    }
+                  }
+                }';
+    end
+
+    @status = @re.status;
+
+    #render ajax layout
+    render layout: 'ajax';
+
+
+  end
+
+
+
   def create_person
     #this is used to create a person after they have passed validation
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
