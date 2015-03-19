@@ -25,7 +25,7 @@ function create_person(){
     {
         //create request to backend to create new user
         $.post( "/peoples/create_person", { email: email, first_name: first_name, last_name: last_name, gender: gender, employer: employer, party: party, state: state, country_code: country_code}).done(function(data){
-            
+
 
             if(data == 201)
             {
