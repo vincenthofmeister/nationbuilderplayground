@@ -57,8 +57,17 @@ function update_person(){
         //create request to backend to create new user
         $.post( "/peoples/send_update_person", { person_id: person_id, email: email, first_name: first_name, last_name: last_name, gender: gender, employer: employer, party: party, state: state, country_code: country_code}).done(function(data){
 
+            if(data == 200)
+            {
+                alert(first_name + " " + last_name + " with ID of " + person_id  + " and email: " + email + " was updated!");
+                location.reload(); 
+            }
+            else
+            {
+                alert("There was an issue and the person was not updated. You may be trying to enter an email address that already exists.");
+            }
 
-           alert(data);
+
 
 
         });
