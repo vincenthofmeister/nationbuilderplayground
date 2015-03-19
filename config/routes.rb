@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   root 'pages#home';
 
 
+  #peoples routes
   get 'peoples/add';
+  post 'peoples/create_person';
 
+
+  #pages routes
   get 'pages/nbcallback';
 
   # Example of regular route:
