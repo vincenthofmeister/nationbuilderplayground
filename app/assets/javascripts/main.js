@@ -1,6 +1,36 @@
+
+//called when someone clicks on 'delete' person
+
+function delete_person(person_id){
+    
+    var c = confirm("Are you sure you want to delete the person with an ID of " + person_id + "?");
+
+    if(c == true) {
+        //create request to backend to create new user
+        $.get("/peoples/delete_person", {person_id: person_id}).done(function (data) {
+
+
+            if (data == 204) {
+                alert("Person was successfully deleted!")
+                //remove person
+                $("#" + person_id).remove();
+            }
+            else {
+                alert("There was a problem and the person was not deleted. Are you sure the person exists?");
+            }
+
+
+        });
+
+    }
+
+
+}
+
+
+
+//called when someone wants to create a person
 function create_person(){
-
-
 
     var email = document.getElementById("email").value;
     var first_name = document.getElementById("first_name").value;

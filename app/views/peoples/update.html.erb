@@ -12,7 +12,7 @@
 
 
 <% @re['results'].each do |person| %>
-      <tr>
+      <tr id="<%= person['id']; %>">
         <td><%= person['first_name'] %></td>
         <td><%= person['last_name'] %></td>
         <td><%= person['email'] %></td>

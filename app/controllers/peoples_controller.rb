@@ -31,8 +31,13 @@ class PeoplesController < ApplicationController
 
 
   def delete_person
+    #this is used to create a person after they have passed validation
+    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
 
-
+    @resp = conn.delete do |req|
+      req.url '/api/v1/people/'+params[:person_id]+'/?access_token=' + API_TOKEN;
+      req.headers['Content-Type'] = 'application/json'
+    end
 
     render layout: 'ajax';
   end
