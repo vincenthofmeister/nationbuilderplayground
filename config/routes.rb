@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   #peoples routes
   get 'peoples/add';
+  get 'peoples/update';
   post 'peoples/create_person';
 
 

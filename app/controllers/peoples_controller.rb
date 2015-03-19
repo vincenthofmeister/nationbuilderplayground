@@ -7,51 +7,14 @@ class PeoplesController < ApplicationController
   API_TOKEN = '1ec862aed9724b88c38da24383d501d40b5279b8753089d0f4971a19a476edf6';
 
   def add
+    #displays add form for person
+  end
 
-
-
-    #this is used to create a person after they have passed validation
-    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
-
-    @re = conn.post do |req|
-      req.url '/api/v1/people?access_token=' + API_TOKEN;
-      req.headers['Content-Type'] = 'application/json'
-      req.body = '{
-  "person": {
-    "email": "bobble@example.com",
-    "last_name": "Newer",
-    "first_name": "Person",
-    "sex": "M",
-    "employer": "forty",
-    "party": "P",
-    "registered_address": {
-      "state": "TX",
-      "country_code": "US"
-    }
-  }
-}';
-    end
-
-
-
-
-
-
-
-
-
-
-=begin
-    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com') do |faraday|
-      faraday.request  :url_encoded             # form-encode POST params
-      faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-    end
-
-    @b = conn.get '/api/v1/sites/vincentinitiativv/pages/basic_pages', { :limit => 10, :access_token => '1ec862aed9724b88c38da24383d501d40b5279b8753089d0f4971a19a476edf6' }
-=end
+  def update
 
   end
+
+
 
 
 
