@@ -23,6 +23,10 @@ class PeoplesController < ApplicationController
 
 
   def create_person
+
+    #render nothing as this is an remote call
+    render nothing: true;
+
     #this is used to create a person after they have passed validation
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
 
@@ -31,15 +35,15 @@ class PeoplesController < ApplicationController
       req.headers['Content-Type'] = 'application/json'
       req.body = '{
                   "person": {
-                    "email": "vinny123123@example.com",
-                    "last_name": "Joebillasd",
-                    "first_name": "Anderson",
-                    "sex": "M",
-                    "employer": "Dexter Labs",
-                    "party": "S",
+                    "email": "'+params[:email]+'",
+                    "last_name": "'+params[:last_name]+'",
+                    "first_name": "'+params[:first_name]+'",
+                    "sex": "'+params[:gender]+'",
+                    "employer": "'+params[:employer]+'",
+                    "party": "'+params[:party]+'",
                     "registered_address": {
-                      "state": "TX",
-                      "country_code": "US"
+                      "state": "'+params[:state]+'",
+                      "country_code": "'+params[:country_code]+'"
                     }
                   }
                 }';
