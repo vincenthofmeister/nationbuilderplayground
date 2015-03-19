@@ -8,6 +8,39 @@ class PeoplesController < ApplicationController
 
   def add
 
+
+
+    #this is used to create a person after they have passed validation
+    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
+
+    @re = conn.post do |req|
+      req.url '/api/v1/people?access_token=' + API_TOKEN;
+      req.headers['Content-Type'] = 'application/json'
+      req.body = '{
+  "person": {
+    "email": "bobble@example.com",
+    "last_name": "Newer",
+    "first_name": "Person",
+    "sex": "M",
+    "employer": "forty",
+    "party": "P",
+    "registered_address": {
+      "state": "TX",
+      "country_code": "US"
+    }
+  }
+}';
+    end
+
+
+
+
+
+
+
+
+
+
 =begin
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
@@ -24,13 +57,12 @@ class PeoplesController < ApplicationController
 
   def create_person
 
-    #render nothing as this is an remote call
-    render nothing: true;
+
 
     #this is used to create a person after they have passed validation
     conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
 
-    @b = conn.post do |req|
+    @re = conn.post do |req|
       req.url '/api/v1/people?access_token=' + API_TOKEN;
       req.headers['Content-Type'] = 'application/json'
       req.body = '{
@@ -48,6 +80,14 @@ class PeoplesController < ApplicationController
                   }
                 }';
     end
+
+    @status = @re.status;
+
+    #render ajax layout
+    render layout: 'ajax';
+
+
+
 
 
   end
