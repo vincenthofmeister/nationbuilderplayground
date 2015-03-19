@@ -14,11 +14,9 @@ class PeoplesController < ApplicationController
     #get the host to determine what redirect_uri should be
     host = request.host;
 
-    if host = 'localhost'
-      redirect_url = 'http://localhost:3000/pages/nbcallback';
-    else
-      redirect_url = 'http://nationbuilderplayground.herokuapp.com/pages/nbcallback';
-    end
+
+    redirect_url = 'http://nationbuilderplayground.herokuapp.com/pages/nbcallback';
+
 
     @client = OAuth2::Client.new(CLIENT_ID, CLIENT_SECRET, :site => site_path)
     @redirect = @client.auth_code.authorize_url(:redirect_url => redirect_url)
