@@ -20,5 +20,8 @@ module Nbplayground
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    #compile fonts
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+
   end
 end
