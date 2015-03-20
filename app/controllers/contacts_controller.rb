@@ -25,6 +25,18 @@ class ContactsController < ApplicationController
 
   end
 
+
+  def send_contact
+    #this actually sends the contact via POST to nationbuilder via the api
+
+
+
+  end
+
+
+
+
+
   def show_logs
     #this shows all of the payloads sent to this contact point sorted by date
 

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post 'contacts/new_contact_point';
   get 'contacts/log_contact';
   get 'contacts/show_logs';
+  post 'contacts/send_contact';
 
 
   # Example of regular route:
