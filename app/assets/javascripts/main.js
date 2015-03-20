@@ -1,3 +1,15 @@
+$( document ).ready(function() {
+
+    var party_value = document.getElementById('hidden_party').value;
+
+    $('#party option[value='+ party_value +']').attr('selected','selected');
+
+    var state_value = document.getElementById('hidden_state').value;
+
+    $('#state option[value='+ state_value +']').attr('selected','selected');
+
+});
+
 
 //called when someone wants to create a contact point
 function create_contact(){

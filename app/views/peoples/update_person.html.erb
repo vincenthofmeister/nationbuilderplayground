@@ -35,24 +35,7 @@
     <input type="hidden" id="hidden_party" value="<%= @re['person']['party']; %>">
 
     <input type="hidden" id="hidden_state" value="<%= @re['person']['primary_address']['state']; %>">
-
-    <script type="application/javascript">
-
-
-        $( document ).ready(function() {
-
-            var party_value = document.getElementById('hidden_party').value;
-
-            $('#party option[value='+ party_value +']').attr('selected','selected');
-
-            var state_value = document.getElementById('hidden_state').value;
-
-            $('#state option[value='+ state_value +']').attr('selected','selected');
-
-        });
-
-    </script>
-
+    
     <div class="form-group">
       <label for="party">Party</label>
       <select class="form-control" name="party" id="party">
