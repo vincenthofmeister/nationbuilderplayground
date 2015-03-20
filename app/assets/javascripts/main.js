@@ -1,6 +1,56 @@
 
-//called when someone clicks on 'delete' person
+//called when someone wants to create a contact point
+function create_contact(){
 
+
+    var contact_id = document.getElementById("contact_id").value;
+    var sender_id = document.getElementById("sender_id").value;
+    var broadcaster_id = document.getElementById("broadcaster_id").value;
+    var contact_method = document.getElementById("contact_method").value;
+    var contact_status = document.getElementById("contact_status").value;
+    var contact_type = document.getElementById("contact_type").value;
+    var note = document.getElementById("note").value;
+
+    if(!contact_id || !sender_id || !broadcaster_id || !contact_method || !contact_status || !contact_type)
+    {
+        //some value is missing
+        alert("Please make sure you have all the fields filled out as they are all required (except note).");
+
+    }
+    else
+    {
+
+        //create request to backend to create new user
+        $.post( "/contacts/send_contact", { contact_id: contact_id, sender_id: sender_id, broadcaster_id: broadcaster_id, contact_method: contact_method, contact_status: contact_status, contact_type: contact_type, note: note}).done(function(data){
+
+            if(data == 200)
+            {
+                alert('The contact was successfully logged! Visit the "View Payloads" tab and the most recent one will be the response for this.');
+            }
+            else
+            {
+                alert("Error! The contact point was not saved.");
+            }
+
+        });
+    }
+
+
+
+
+
+
+
+
+
+    //return false
+    return false;
+}
+
+
+
+
+//called when someone clicks on 'delete' person
 function delete_person(person_id){
 
     var c = confirm("Are you sure you want to delete the person with an ID of " + person_id + "?");

@@ -28,7 +28,27 @@ class ContactsController < ApplicationController
 
   def send_contact
     #this actually sends the contact via POST to nationbuilder via the api
+    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com')
 
+    @re = conn.post do |req|
+      req.url '/api/v1/people/'+params[:contact_id]+'/contacts?access_token=' + API_TOKEN;
+      req.headers['Content-Type'] = 'application/json'
+      req.body = '{
+            "contact": {
+                "sender_id": "'+ params[:sender_id] +'",
+                "broadcaster_id": "'+ params[:broadcaster_id] +'",
+                "status": "'+ params[:contact_status] +'",
+                "method": "'+ params[:contact_method] +'",
+                "type_id": "'+ params[:contact_type] +'",
+                "note": "'+ params[:note] +'"
+  }
+}';
+    end
+
+    @status = @re.status;
+
+    #render ajax layout
+    render layout: 'ajax';
 
 
   end
