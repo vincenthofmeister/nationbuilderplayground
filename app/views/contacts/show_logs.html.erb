@@ -1,0 +1,24 @@
+<table class="table">
+
+  <tr>
+    <th>ID</th>
+    <th>Payload Received Time</th>
+    <th>Payload</th>
+  </tr>
+
+
+
+  <% @payloads.each do |payload| %>
+      <tr>
+        <td><%= payload.id %></td>
+        <td><%= payload.created_at %></td>
+        <td><%= payload.payload %></td>
+      </tr>
+  <% end %>
+
+
+
+
+
+
+</table>

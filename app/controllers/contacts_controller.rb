@@ -67,7 +67,7 @@ class ContactsController < ApplicationController
 
   def show_logs
     #this shows all of the payloads sent to this contact point sorted by date
-
+    @payloads = Contacts.order(created_at: :desc);
 
   end
 
