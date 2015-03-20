@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
 
     contact.save;
 
-    render nothing: true; 
+     
 
   end
 
