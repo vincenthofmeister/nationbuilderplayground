@@ -35,15 +35,6 @@ function create_contact(){
         });
     }
 
-
-
-
-
-
-
-
-
-    //return false
     return false;
 }
 
