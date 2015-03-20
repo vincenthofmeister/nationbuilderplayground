@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   #pages routes
   get 'pages/nbcallback';
 
+  #contacts routes
+  post 'contacts/new_contact_point';
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
