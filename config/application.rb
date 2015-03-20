@@ -21,6 +21,6 @@ module Nbplayground
     # config.i18n.default_locale = :de
 
     #compile fonts
-
+    config.serve_static_assets = true; 
   end
 end
