@@ -12,6 +12,17 @@ class ContactsController < ApplicationController
   def log_contact
     #this is a form that is capable of logging contact with a person, displays payload from above method upon
 
+    conn = Faraday.new(:url => 'https://vincentinitiativv.nationbuilder.com') do |faraday|
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+
+    @resp = conn.get '/api/v1/people', { :limit => 100, :access_token => API_TOKEN }
+
+    @re = JSON.parse(@resp.body)
+
+
   end
 
   def show_logs
