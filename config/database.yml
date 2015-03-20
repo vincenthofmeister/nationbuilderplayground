@@ -83,4 +83,4 @@ production:
   #database: d6fpbd76r6ucj9
   #username: qastpmvqhdqwtj
   #password: <%= ENV['NBPLAYGROUND_DATABASE_PASSWORD'] %>
-  url: postgres://qastpmvqhdqwtj:01qIZQIzjorzoInbMhz8j6z_Ur@ec2-184-73-221-47.compute-1.amazonaws.com:5432/d6fpbd76r6ucj9
+  url: postgres://rcagcaojrkyiks:vGAJTxU45E4Nzw23R8ftf7SVcs@ec2-184-73-221-47.compute-1.amazonaws.com:5432/d5duuqj3lhsmvu
