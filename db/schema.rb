@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150320042720) do
   enable_extension "plpgsql"
 
   create_table "contacts", force: true do |t|
-    t.string   "payload"
+    t.string   "payload",    limit: 5000
     t.datetime "created_at"
     t.datetime "updated_at"
   end
