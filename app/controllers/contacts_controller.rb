@@ -1,5 +1,8 @@
 class ContactsController < ApplicationController
 
+  #require json gem
+  require 'json';
+
   API_TOKEN = '1ec862aed9724b88c38da24383d501d40b5279b8753089d0f4971a19a476edf6';
 
   skip_before_action :verify_authenticity_token
@@ -8,13 +11,13 @@ class ContactsController < ApplicationController
   def new_contact_point
     #this method receives payload from nationbuilder when contact is made with a person (from webhook)
 
-
+    #request.format = :json;
 
     contact = Contacts.create(payload: request.raw_post);
 
     contact.save;
 
-    render nothing: true;
+    render nothing: true; 
 
   end
 
