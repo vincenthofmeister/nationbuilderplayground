@@ -11,10 +11,14 @@ class ContactsController < ApplicationController
   def new_contact_point
     #this method receives payload from nationbuilder when contact is made with a person (from webhook)
 
-    contact = Contacts.create(payload: request.body.to_s);
+    body_string = request.raw_post.to_s;
+
+    contact = Contacts.create(payload: body_string);
 
     contact.save;
 
+    #render ajax layout
+    render layout: 'ajax';
 
 
   end
