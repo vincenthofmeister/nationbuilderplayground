@@ -8,7 +8,9 @@ class ContactsController < ApplicationController
   def new_contact_point
     #this method receives payload from nationbuilder when contact is made with a person (from webhook)
 
-    contact = Contacts.create(payload: request.raw_post);
+    string_body = request.raw_post.to_s;
+
+    contact = Contacts.create(payload: string_body);
 
     contact.save;
 
@@ -60,7 +62,7 @@ class ContactsController < ApplicationController
 
 
   end
-  
+
 
   def show_logs
     #this shows all of the payloads sent to this contact point sorted by date
