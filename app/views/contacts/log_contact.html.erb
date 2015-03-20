@@ -1,11 +1,72 @@
 <div class="starter-template">
-  <h1>Add Contact</h1>
+  <h1>Add Contact Point</h1>
+  <p><b>Note:</b> Sender ID and Broadcaster ID are set to '1' to default to NationBuilder Support account. If you would like to change this value, please contact the administrator. List of people contacted is pulled from your nation to prevent nonexisting ID errors and shown in the first option below. If you believe a contact is missing, please contact the administrator.</p>
 
   <form class="input-form" onsubmit="return create_contact();">
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+      <label for="contact-id">Person Contacted</label>
+      <select class="form-control" name="contact_id" id="contact_id">
+        <% @re['results'].each do |person| %>
+            <option value="<%= person['id']; %>"><%= person['first_name'] + ' ' + person['last_name'];  %></option>
+      <% end %>
+      </select>
     </div>
+
+    <div class="form-group">
+      <label for="senderId">Sender ID</label>
+      <input type="text" class="form-control" name="sender_id" id="sender_id" value="1" disabled="disabled">
+    </div>
+    <div class="form-group">
+      <label for="broadcasterId">Broadcaster ID</label>
+      <input type="text" class="form-control" name="broadcaster_id" id="broadcaster_id" value="1" disabled="disabled">
+    </div>
+    <div class="form-group">
+      <label for="contact-method">Contact Method</label>
+      <select class="form-control" name="contact_method" id="contact_method">
+        <option value="delivery">Delivery</option>
+        <option value="door_knock">Door knock</option>
+        <option value="email">Email</option>
+        <option value="email_blast">Email</option>
+        <option value="face_to_face">Face to face</option>
+        <option value="facebook">Facebook</option>
+        <option value="meeting">Meeting</option>
+        <option value="phone_call">Phone call</option>
+        <option value="robocall">Robocall</option>
+        <option value="snail_mail">Snail mail</option>
+        <option value="text">Text</option>
+        <option value="text_blast">Text blast</option>
+        <option value="tweet">Tweet</option>
+        <option value="video_call">Video call</option>
+        <option value="webinar">Webinar</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="contact-status">Contact Status</label>
+      <select class="form-control" name="contact_status" id="contact_status">
+        <option value="answered">Answered</option>
+        <option value="bad_info">Bad info</option>
+        <option value="left_message">Left message</option>
+        <option value="meaningful_interaction">Meaningful interaction</option>
+        <option value="not_interested">Not interested</option>
+        <option value="send_information">Send information</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="contact-type">Contact Type</label>
+      <select class="form-control" name="contact_type" id="contact_type">
+        <option value="1">Inbox</option>
+        <option value="4">Invite</option>
+        <option value="2">Outreach</option>
+        <option value="3">Question</option>
+        <option value="7">Thank you</option>
+        <option value="6">Volunteer recruitment</option>
+      </select>
+    </div>
+
+
+
 
     <button type="submit" class="btn btn-default">Create Person</button>
   </form>
